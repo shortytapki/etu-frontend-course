@@ -1,0 +1,11 @@
+.album {
+  object-fit: cover;
+  object-position: center;
+  justify-self: center;
+  transition: all 0.3s ease;
+}
+
+.album:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}

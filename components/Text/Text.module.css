@@ -1,0 +1,44 @@
+.text {
+  font-weight: 900;
+  text-transform: uppercase;
+  background: hsla(18, 76%, 85%, 1);
+  font-size: 3rem;
+  text-align: center;
+
+  --beaver: #958270ff;
+  --rich-black-fogra-39: #000908ff;
+  --silver-chalice: #a3aeafff;
+  --blue-munsell: #009aacff;
+  --sky-blue-crayola: #47c1d6ff;
+
+  background: linear-gradient(
+    180deg,
+    #958270ff,
+    #dbbcaaff,
+    #a3aeafff,
+    #009aacff,
+    #47c1d6ff
+  );
+
+  background: -moz-linear-gradient(
+    180deg,
+    #958270ff,
+    #dbbcaaff,
+    #a3aeafff,
+    #009aacff,
+    #47c1d6ff
+  );
+
+  background: -webkit-linear-gradient(
+    180deg,
+    #958270ff,
+    #dbbcaaff,
+    #a3aeafff,
+    #009aacff,
+    #47c1d6ff
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
