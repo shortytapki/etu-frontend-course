@@ -15,7 +15,9 @@ export default function Bands() {
   useEffect(() => {
     const getBands = async () => {
       const res = await fetch('/api/bands');
-      const data = await res.json();
+      let data = await res.json();
+      data = data.sort((a, b) => b.added.seconds - a.added.seconds);
+      console.log(data);
       setBands(data);
     };
     getBands();
@@ -64,7 +66,7 @@ export default function Bands() {
                 alt={`${name} band image`}
                 width={200}
                 height={200}
-                className={styles.bandimg}
+                className={`${styles.bandimg} card`}
               />
               <p className={styles.title}>{name}</p>
             </div>
