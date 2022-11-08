@@ -1,46 +1,25 @@
 import Image from 'next/image';
 import Text from '../../components/Text/Text';
 import Gallery from '../../components/Gallery/Gallery';
-import ch from '../../public/Ch.jpg';
-import cb from '../../public/CoB.jpg';
-import ds from '../../public/Ds.jpg';
-import lg from '../../public/LoG.jpg';
 import styles from './Albums.module.css';
+import { useEffect, useState } from 'react';
 
 const AlbumsPage = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      const res = await fetch('https://jsonplaceholder.typicode.com/users');
+      setData(await res.json());
+    };
+    getData();
+  }, []);
+
+  console.log(data);
   return (
     <div>
-      <Text>Check out today&apos;s albums</Text>
-      <Gallery>
-        <Image
-          src={ch}
-          alt=""
-          width={250}
-          height={250}
-          className={styles.album}
-        ></Image>
-        <Image
-          src={cb}
-          alt=""
-          width={250}
-          height={250}
-          className={styles.album}
-        ></Image>
-        <Image
-          src={ds}
-          alt=""
-          width={250}
-          height={250}
-          className={styles.album}
-        ></Image>
-        <Image
-          src={lg}
-          alt=""
-          width={250}
-          height={250}
-          className={styles.album}
-        ></Image>
-      </Gallery>
+      <Text>Albums</Text>
+      <Gallery></Gallery>
     </div>
   );
 };

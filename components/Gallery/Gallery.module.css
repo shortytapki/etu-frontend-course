@@ -1,8 +1,43 @@
 .gallery {
-  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 20px;
-  width: 800px;
+  gap: 2rem;
+  width: 80rem;
+  min-height: 60rem;
+  position: relative;
+}
+
+.btn {
+  border-radius: 50%;
+  border: none;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  transition: all 0.3s ease;
+  background: linear-gradient(
+    to right,
+    #ede342ff,
+    #f2bf6cff,
+    #f69a97ff,
+    #fb76c1ff,
+    #ff51ebff
+  );
+}
+
+.btn:hover {
+  transform: translate(0, -50%) scale(1.3);
+  cursor: pointer;
+}
+
+.btn-left {
+  left: 0;
+}
+
+.btn-right {
+  right: 0;
 }

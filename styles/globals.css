@@ -1,18 +1,53 @@
-html,
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, 'Roboto', sans-serif;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(20, 33, 61, 0.5)),
+    url('../public/home_light.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left;
 }
 
-a {
-  color: inherit;
+.link {
+  position: relative;
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+.link::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(
+    to right,
+    #ede342ff,
+    #f2bf6cff,
+    #f69a97ff,
+    #fb76c1ff,
+    #ff51ebff
+  );
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.link:hover::before {
+  transform: scaleX(1);
+}
+
+.card {
+  border-radius: 16px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,6 +56,22 @@ a {
   }
   body {
     color: white;
-    background: black;
+
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(20, 33, 61, 0.7)),
+      url('../public/home.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
   }
+}
+
+.gradient {
+  background: linear-gradient(
+    to right,
+    #ede342ff,
+    #f2bf6cff,
+    #f69a97ff,
+    #fb76c1ff,
+    #ff51ebff
+  );
 }
