@@ -7,10 +7,10 @@ config();
 const app = initializeApp(JSON.parse(process.env.FIREBASE_CONFIG));
 const db = getFirestore(app);
 
-const getData = async () => {
+export const getData = async () => {
   let data = [];
   const docSnaps = await getDocs(collection(db, 'artists'));
-  docSnaps.forEach((snap) => data.push(snap.data()));
+  docSnaps.forEach((snap) => data.push({ ...snap.data(), id: snap.id }));
   return data;
 };
 

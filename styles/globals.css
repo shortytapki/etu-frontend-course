@@ -4,16 +4,17 @@
 
 html {
   font-size: 62.5%;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(20, 33, 61, 0.6));
 }
 
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, 'Roboto', sans-serif;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(20, 33, 61, 0.6)),
-    url('../public/home_light.webp');
+  background: url('../public/home_light.webp');
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 100vh;
   background-position: left;
 }
 
