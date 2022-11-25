@@ -1,7 +1,12 @@
 import { config } from 'dotenv';
 import { initializeApp } from 'firebase/app';
 
-import { getFirestore, doc, setDoc, serverTimestamp } from 'firebase/firestore';
+import {
+  getFirestore,
+  collection,
+  serverTimestamp,
+  addDoc,
+} from 'firebase/firestore';
 
 import { redirect } from 'next/dist/server/api-utils';
 
@@ -12,7 +17,7 @@ const db = getFirestore(app);
 
 export default async function postBand(req, res) {
   const { bandName, url } = JSON.parse(req.body);
-  await setDoc(doc(db, 'artists', bandName), {
+  await addDoc(collection(db, 'artists'), {
     name: bandName,
     image: url,
     added: serverTimestamp(),

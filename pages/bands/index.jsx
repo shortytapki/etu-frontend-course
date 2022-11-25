@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Gallery from '../../components/Gallery/Gallery';
 import { useEffect, useState } from 'react';
 import Form from '../../components/Form/Form';
+import Link from 'next/link';
 
 export default function Bands() {
   const [bands, setBands] = useState([]);
@@ -17,7 +18,6 @@ export default function Bands() {
       const res = await fetch('/api/bands');
       let data = await res.json();
       data = data.sort((a, b) => b.added.seconds - a.added.seconds);
-      console.log(data);
       setBands(data);
     };
     getBands();
@@ -39,6 +39,8 @@ export default function Bands() {
     setUrl('');
   };
 
+  const openBandPage = () => {};
+
   return (
     <main className={styles.main}>
       <Text>Favorite Bands</Text>
@@ -59,18 +61,24 @@ export default function Bands() {
         }}
       >
         {bands &&
-          bands.slice(page * 4, (page + 1) * 4).map(({ name, image }, idx) => (
-            <div key={idx} className={styles.imgcontainer}>
-              <img
-                src={image}
-                alt={`${name} band image`}
-                width={200}
-                height={200}
-                className={`${styles.bandimg} card`}
-              />
-              <p className={styles.title}>{name}</p>
-            </div>
-          ))}
+          bands
+            .slice(page * 4, (page + 1) * 4)
+            .map(({ name, image, id }, idx) => (
+              <Link
+                href={`/bands/${id}`}
+                key={idx}
+                className={styles.imgcontainer}
+              >
+                <img
+                  src={image}
+                  alt={`${name} band image`}
+                  width={200}
+                  height={200}
+                  className={`${styles.bandimg} card`}
+                />
+                <p className={styles.title}>{name}</p>
+              </Link>
+            ))}
       </Gallery>
     </main>
   );
